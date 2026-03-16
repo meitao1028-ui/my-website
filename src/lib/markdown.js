@@ -24,6 +24,10 @@ export async function getMarkdownHtml(folder, slug) {
 
 export function getCollection(folder) {
   const dir = path.join(contentRoot, folder);
+  if (!fs.existsSync(dir)) {
+    return [];
+  }
+
   const files = fs.readdirSync(dir).filter((f) => f.endsWith('.md'));
 
   return files
