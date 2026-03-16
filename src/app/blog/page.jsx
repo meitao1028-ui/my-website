@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { getCollection } from '@/lib/markdown';
 
 export const dynamic = 'error';
@@ -18,9 +17,7 @@ export default async function BlogPage() {
         {posts.map((post) => (
           <article key={post.slug} className="card">
             <h3 className="font-semibold text-lg mb-1">
-              <Link href={`/blog/${post.slug}`} className="hover:text-sky-600">
-                {post.frontmatter.title || post.slug}
-              </Link>
+              {post.frontmatter.title || post.slug}
             </h3>
             {post.frontmatter.date && (
               <p className="text-xs text-slate-500 mb-1">
